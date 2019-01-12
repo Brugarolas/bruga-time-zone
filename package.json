@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "tz-lookup": "^6.1.8",
-    "moment-timezone": "^0.5.23"
+    "moment-timezone": "^0.5.23",
+    "cors": "2.8.5"
   }
 }

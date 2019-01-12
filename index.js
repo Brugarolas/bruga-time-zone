@@ -1,15 +1,24 @@
 const express = require('express');
 const tzlookup = require('tz-lookup');
 const moment = require('moment-timezone');
-const app = express();
+var cors = require('cors');
 
+const app = express();
 const PORT = 3000;
 
-app.get('/', function (req, res) {
+const whitelist = [ 'http://localhost:8080', 'https://brugarolas.github.io/' ];
+const options = {
+  origin: (origin, callback) => {
+    whitelist.includes(origin) ? callback(undefined, true) : callback(new Error('Not allowed by CORS'))
+  },
+  optionsSuccessStatus: 200
+}
+
+app.get('/', cors(options), function (req, res) {
   res.status(200).send({ message: 'Example call: /timezone?lat=42.7235&lon=-73.6931', version: '1.0.0' });
 });
 
-app.get('/timezone', function (req, res) {
+app.get('/timezone', cors(options), function (req, res) {
   const { lat, lon } = req.query;
   const latitude = Number(lat);
   const longitude = Number(lon);
