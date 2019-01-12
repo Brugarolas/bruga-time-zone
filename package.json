@@ -1,0 +1,16 @@
+{
+  "name": "bruga-time-zone",
+  "description": "A Time Zone API used for my Bruga Weather app",
+  "version": "1.0.0",
+  "author": "andres-brugarolas",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "tz-lookup": "^6.1.8",
+    "moment-timezone": "^0.5.23"
+  }
+}
