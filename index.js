@@ -4,12 +4,12 @@ const moment = require('moment-timezone');
 var cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 80;
 
-const whitelist = [ 'http://localhost:8080', 'https://brugarolas.github.io/' ];
+const whitelist = [ 'http://localhost:8080', 'https://brugarolas.github.io', 'https://brugarolas.github.io/bruga-weather', 'https://brugarolas.openode.io' ];
 const options = {
   origin: (origin, callback) => {
-    whitelist.includes(origin) ? callback(undefined, true) : callback(new Error('Not allowed by CORS'))
+    !origin || whitelist.includes(origin) ? callback(undefined, true) : callback(new Error(`Not allowed by CORS (${origin})`))
   },
   optionsSuccessStatus: 200
 }
@@ -42,5 +42,6 @@ app.get('/timezone', cors(options), function (req, res) {
   res.status(200).send(response);
 });
 
-app.listen(PORT);
-console.log('Listening on port ' + PORT);
+app.listen(PORT, () => {
+  console.log('Listening on port ' + PORT);
+});

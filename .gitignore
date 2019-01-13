@@ -11,3 +11,7 @@ package-lock.json
 *.ntvs*
 *.njsproj
 *.sln
+
+# OpeNode
+.openode
+Dockerfile
