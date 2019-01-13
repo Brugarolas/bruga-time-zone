@@ -36,7 +36,7 @@ app.get('/timezone', cors(options), function (req, res) {
     lat: latitude,
     lon: longitude,
     timezone: timezone,
-    zone: zone.parse(+timestamp)
+    offset: zone.parse(+timestamp)
   }
 
   res.status(200).send(response);
