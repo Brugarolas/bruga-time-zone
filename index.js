@@ -9,15 +9,20 @@ const PORT = process.env.PORT || 80;
 const whitelist = [
   'http://localhost:8080',
   'https://brugarolas.github.io',
-  'https://brugarolas.github.io/bruga-weather',
   'https://brugarolas.openode.io',
   'https://bruga-time-zone.herokuapp.com',
   'https://andres-brugarolas.com',
-  'https://andres-brugarolas.com/bruga-weather'
+  'https://www.andres-brugarolas.com'
 ];
+
+const includedInWhitelist = (origin) => {
+  return Boolean(whitelist.find(validOrigin => origin.startsWith(validOrigin)))
+}
+
 const options = {
   origin: (origin, callback) => {
-    !origin || whitelist.includes(origin) ? callback(undefined, true) : callback(new Error(`Not allowed by CORS (${origin})`))
+    console.log(origin)
+    !origin || includedInWhitelist(origin) ? callback(undefined, true) : callback(new Error(`Not allowed by CORS (${origin})`))
   },
   optionsSuccessStatus: 200
 }
