@@ -6,7 +6,15 @@ var cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 80;
 
-const whitelist = [ 'http://localhost:8080', 'https://brugarolas.github.io', 'https://brugarolas.github.io/bruga-weather', 'https://brugarolas.openode.io', 'https://bruga-time-zone.herokuapp.com' ];
+const whitelist = [
+  'http://localhost:8080',
+  'https://brugarolas.github.io',
+  'https://brugarolas.github.io/bruga-weather',
+  'https://brugarolas.openode.io',
+  'https://bruga-time-zone.herokuapp.com',
+  'https://andres-brugarolas.com',
+  'https://andres-brugarolas.com/bruga-weather'
+];
 const options = {
   origin: (origin, callback) => {
     !origin || whitelist.includes(origin) ? callback(undefined, true) : callback(new Error(`Not allowed by CORS (${origin})`))

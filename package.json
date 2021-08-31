@@ -9,9 +9,9 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "tz-lookup": "^6.1.8",
-    "moment-timezone": "^0.5.23",
+    "express": "^4.17.1",
+    "tz-lookup": "^6.1.25",
+    "moment-timezone": "^0.5.33",
     "cors": "2.8.5"
   }
 }
