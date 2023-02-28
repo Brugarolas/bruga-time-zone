@@ -7,7 +7,6 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "utils:static-server": "http-server ./dist --cors",
     "utils:updates": "ncu",
     "utils:upgrades": "ncu -u"
   },
