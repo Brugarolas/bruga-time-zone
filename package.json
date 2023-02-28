@@ -6,12 +6,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "utils:static-server": "http-server ./dist --cors",
+    "utils:updates": "ncu",
+    "utils:upgrades": "ncu -u"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "tz-lookup": "^6.1.25",
-    "moment-timezone": "^0.5.33",
+    "moment-timezone": "^0.5.41",
     "cors": "2.8.5"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "npm-check-updates": "^16.7.10"
   }
 }
